@@ -2,8 +2,12 @@
  *
  */
 
-type T = (delimiter: string, value: string) => string[];
+import Parts from './type/parts';
+import Curried from '../core/type/curried';
+import curry from '../core/curry';
 
-const f: T = (delimiter, value) => value.split(delimiter);
+type T = Curried<(delimiter: string | RegExp, value: string) => Parts>;
+
+const f: T = curry((delimiter, value) => value.split(delimiter));
 
 export default f;
