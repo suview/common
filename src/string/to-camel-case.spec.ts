@@ -1,7 +1,7 @@
 import toCamelCase from './to-camel-case';
 
 describe('string/toCamelCase', () => {
-    it('does something', () => {
-        expect(toCamelCase()).toEqual('to-camel-case');
+    it('combines string parts into camelCase', () => {
+        expect(toCamelCase(['one', 'two', 'three'])).toEqual('oneTwoThree');
     });
 });
