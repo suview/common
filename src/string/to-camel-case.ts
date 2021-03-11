@@ -2,8 +2,14 @@
  *
  */
 
-type T = () => string;
+import Parts from './type/parts';
+import upperCaseFirst from './upper-case-first';
 
-const f: T = () => 'to-camel-case';
+type T = (parts: Parts) => string;
+
+const f: T = parts => {
+    const [head, ...tail] = parts;
+    return [head, ...tail.map(upperCaseFirst)].join('');
+};
 
 export default f;
