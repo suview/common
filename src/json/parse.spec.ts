@@ -1,7 +1,7 @@
 import parse from './parse';
 
 describe('json/parse', () => {
-    it('does something', () => {
-        expect(parse()).toEqual('parse');
+    it('parses valid JSON', () => {
+        expect(parse('{"key":"value"}')).toEqual({ key: 'value' });
     });
 });
