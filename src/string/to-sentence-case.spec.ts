@@ -1,7 +1,7 @@
 import toSentenceCase from './to-sentence-case';
 
 describe('string/toSentenceCase', () => {
-    it('does something', () => {
-        expect(toSentenceCase()).toEqual('to-sentence-case');
+    it('combines string parts into Sentence Case', () => {
+        expect(toSentenceCase(['one', 'two', 'three'])).toEqual('One Two Three');
     });
 });

@@ -2,8 +2,11 @@
  *
  */
 
-type T = () => string;
+import Parts from './type/parts';
+import split from './split';
 
-const f: T = () => 'from-kebab-case';
+type T = (value: string) => Parts;
+
+const f: T = split('-');
 
 export default f;
