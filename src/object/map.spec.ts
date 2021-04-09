@@ -14,7 +14,7 @@ describe('object/map', () => {
             three: true
         };
 
-        expect(map(callback, value)).toEqual(expectedValue);
+        expect(map(callback)(value)).toEqual(expectedValue);
     });
 
     it('provides value, key and object to the callback', () => {
@@ -29,12 +29,9 @@ describe('object/map', () => {
             b: 'b-2 from {"a":1,"b":2}'
         };
 
-        expect(map(callback, value)).toEqual(expectedValue);
+        expect(map(callback)(value)).toEqual(expectedValue);
     });
 
-    // TODO when TypeScript allows
+    // TODO Currently manually curried due to
     // https://github.com/millsp/ts-toolbelt/issues/207
-    // it('is curried', () => {
-    //     expect(map(() => true)({ a: false })).toEqual({ a: true });
-    // });
 });
