@@ -12,4 +12,6 @@ describe('string/contains', () => {
     it('is curried', () => {
         expect(contains('ample')('Example string')).toEqual(true);
     });
+
+    // TODO Determine whether string contains regex match
 });
