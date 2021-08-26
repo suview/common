@@ -2,7 +2,7 @@
  *
  */
 
-type T = <A extends unknown, B extends unknown>(callback: (a: A) => B) => (array: A[]) => B[];
+type T = <A, B>(callback: (a: A, index: number) => B) => (array: A[]) => B[];
 
 const f: T = callback => array => array.map(callback);
 

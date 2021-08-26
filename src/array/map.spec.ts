@@ -8,6 +8,13 @@ describe('array/map', () => {
         expect(map(callback)(array)).toEqual([1, 4, 9]);
     });
 
+    it('provides index to callback function', () => {
+        const array = ['a', 'b', 'c'];
+        const callback = (letter: string, index: number) => letter + index;
+
+        expect(map(callback)(array)).toEqual(['a0', 'b1', 'c2']);
+    });
+
     // TODO Currently manually curried due to
     // https://github.com/millsp/ts-toolbelt/issues/207
 });
