@@ -20,6 +20,6 @@ describe('object/mapKeys', () => {
     // TODO when TypeScript allows
     // https://github.com/millsp/ts-toolbelt/issues/207
     // it('is curried', () => {
-    //     expect(map(key => `a${key}`)({ a: true })).toEqual({ aa: true });
+    //     expect(mapKeys(key => `a${key}`)({ a: true })).toEqual({ aa: true });
     // });
 });
