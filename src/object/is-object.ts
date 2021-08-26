@@ -2,8 +2,10 @@
  *
  */
 
-type T = () => string;
+import isArray from '../array/is-array';
 
-const f: T = () => 'is-object';
+type T = (value: unknown) => boolean;
+
+const f: T = value => (typeof value === 'object' && value !== null && !isArray(value));
 
 export default f;
