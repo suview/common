@@ -5,10 +5,6 @@ describe('math/divide', () => {
         const factor = 2;
         const value = 10;
 
-        expect(divide(factor, value)).toEqual(5);
-    });
-
-    it('is curried', () => {
-        expect(divide(2)(10)).toEqual(5);
+        expect(divide (factor) (value)).toEqual(5);
     });
 });

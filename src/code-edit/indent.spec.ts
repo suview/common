@@ -11,7 +11,7 @@ describe('code-edit/indent', () => {
             selection: { start: 4, end: 4 }
         };
 
-        expect(indent(4, code)).toEqual(expectedOutput);
+        expect(indent (4) (code)).toEqual(expectedOutput);
     });
 
     it('allows different tab size to be specified', () => {
@@ -24,7 +24,7 @@ describe('code-edit/indent', () => {
             selection: { start: 3, end: 3 }
         };
 
-        expect(indent(3, code)).toEqual(expectedOutput);
+        expect(indent (3) (code)).toEqual(expectedOutput);
     });
 
     it('adds tab character to empty source string', () => {
@@ -37,7 +37,7 @@ describe('code-edit/indent', () => {
             selection: { start: 1, end: 1 }
         };
 
-        expect(indent('tab', code)).toEqual(expectedOutput);
+        expect(indent ('tab') (code)).toEqual(expectedOutput);
     });
 
     it('adds spaces in the middle of a file', () => {
@@ -50,7 +50,7 @@ describe('code-edit/indent', () => {
             selection: { start: 10, end: 10 }
         };
 
-        expect(indent(4, code)).toEqual(expectedOutput);
+        expect(indent (4) (code)).toEqual(expectedOutput);
     });
 
     it('adds correct number of spaces to align selection with a multiple of the indentation size', () => {
@@ -63,7 +63,7 @@ describe('code-edit/indent', () => {
             selection: { start: 6, end: 6 }
         };
 
-        expect(indent(4, code)).toEqual(expectedOutput);
+        expect(indent (4) (code)).toEqual(expectedOutput);
     });
 
     it('adds tab character in the middle of a file', () => {
@@ -76,7 +76,7 @@ describe('code-edit/indent', () => {
             selection: { start: 4, end: 4 }
         };
 
-        expect(indent('tab', code)).toEqual(expectedOutput);
+        expect(indent ('tab') (code)).toEqual(expectedOutput);
     });
 
     it('replaces range selection with spaces', () => {
@@ -89,7 +89,7 @@ describe('code-edit/indent', () => {
             selection: { start: 10, end: 10 }
         };
 
-        expect(indent(4, code)).toEqual(expectedOutput);
+        expect(indent (4) (code)).toEqual(expectedOutput);
     });
 
     it('replaces range selection with spaces to align with indentation size', () => {
@@ -102,7 +102,7 @@ describe('code-edit/indent', () => {
             selection: { start: 6, end: 6 }
         };
 
-        expect(indent(4, code)).toEqual(expectedOutput);
+        expect(indent (4) (code)).toEqual(expectedOutput);
     });
 
     it('replaces range selection with tab', () => {
@@ -115,7 +115,7 @@ describe('code-edit/indent', () => {
             selection: { start: 4, end: 4 }
         };
 
-        expect(indent('tab', code)).toEqual(expectedOutput);
+        expect(indent ('tab') (code)).toEqual(expectedOutput);
     });
 
     it('adds spaces to the start of multiple lines', () => {
@@ -128,7 +128,7 @@ describe('code-edit/indent', () => {
             selection: { start: 6, end: 29 }
         };
 
-        expect(indent(4, code)).toEqual(expectedOutput);
+        expect(indent (4) (code)).toEqual(expectedOutput);
     });
 
     it('adds spaces to the start of each line to align with indentation size', () => {
@@ -141,7 +141,7 @@ describe('code-edit/indent', () => {
             selection: { start: 5, end: 25 }
         };
 
-        expect(indent(4, code)).toEqual(expectedOutput);
+        expect(indent (4) (code)).toEqual(expectedOutput);
     });
 
     it('adds tab to the start of multiple lines', () => {
@@ -154,7 +154,7 @@ describe('code-edit/indent', () => {
             selection: { start: 3, end: 17 }
         };
 
-        expect(indent('tab', code)).toEqual(expectedOutput);
+        expect(indent ('tab') (code)).toEqual(expectedOutput);
     });
 
     it('indents entire line when selection is multiple lines regardless of selection location', () => {
@@ -167,20 +167,7 @@ describe('code-edit/indent', () => {
             selection: { start: 13, end: 29 }
         };
 
-        expect(indent(4, code)).toEqual(expectedOutput);
-    });
-
-    it('is curried', () => {
-        const code = {
-            source: '',
-            selection: { start: 0, end: 0 }
-        };
-        const expectedOutput = {
-            source: '    ',
-            selection: { start: 4, end: 4 }
-        };
-
-        expect(indent(4)(code)).toEqual(expectedOutput);
+        expect(indent (4) (code)).toEqual(expectedOutput);
     });
 
     // TODO Anything quirky to do with mixed tabs and spaces

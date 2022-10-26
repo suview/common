@@ -2,14 +2,12 @@
  *
  */
 
-import Curried from '../core/type/curried';
 import Vector from './type/vector';
-import curry from '../core/curry';
 import mapMultiple from '../array/map-multiple';
 import subtract from '../math/subtract';
 
-type T = Curried<(first: Vector, second: Vector) => Vector>;
+type T = (first: Vector) => (second: Vector) => Vector;
 
-const f: T = curry((first: Vector, second: Vector) => mapMultiple(subtract, first, second));
+const f: T = first => second => mapMultiple (subtract) (first) (second) as unknown as Vector;
 
 export default f;

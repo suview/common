@@ -11,7 +11,7 @@ describe('code-edit/lineBreak', () => {
             selection: { start: 11, end: 11 }
         };
 
-        expect(lineBreak(4, code)).toEqual(expectedOutput);
+        expect(lineBreak (4) (code)).toEqual(expectedOutput);
     });
 
     it('splits line with newline character when selection is in the middle of simple string', () => {
@@ -24,7 +24,7 @@ describe('code-edit/lineBreak', () => {
             selection: { start: 7, end: 7 }
         };
 
-        expect(lineBreak(4, code)).toEqual(expectedOutput);
+        expect(lineBreak (4) (code)).toEqual(expectedOutput);
     });
 
     it('replaces selection with newline character when it is a range in the middle of simple string', () => {
@@ -37,7 +37,7 @@ describe('code-edit/lineBreak', () => {
             selection: { start: 4, end: 4 }
         };
 
-        expect(lineBreak(4, code)).toEqual(expectedOutput);
+        expect(lineBreak (4) (code)).toEqual(expectedOutput);
     });
 
     it('indents new line with spaces to match current line indentation', () => {
@@ -50,7 +50,7 @@ describe('code-edit/lineBreak', () => {
             selection: { start: 19, end: 19 }
         };
 
-        expect(lineBreak(4, code)).toEqual(expectedOutput);
+        expect(lineBreak (4) (code)).toEqual(expectedOutput);
     });
 
     it('indents new line with tab to match current line indentation', () => {
@@ -63,7 +63,7 @@ describe('code-edit/lineBreak', () => {
             selection: { start: 13, end: 13 }
         };
 
-        expect(lineBreak('tab', code)).toEqual(expectedOutput);
+        expect(lineBreak ('tab') (code)).toEqual(expectedOutput);
     });
 
     it('indents new line to match current indentation from middle of line', () => {
@@ -76,7 +76,7 @@ describe('code-edit/lineBreak', () => {
             selection: { start: 15, end: 15 }
         };
 
-        expect(lineBreak(4, code)).toEqual(expectedOutput);
+        expect(lineBreak (4) (code)).toEqual(expectedOutput);
     });
 
     it('indents new line to match current indentation from range', () => {
@@ -89,7 +89,7 @@ describe('code-edit/lineBreak', () => {
             selection: { start: 12, end: 12 }
         };
 
-        expect(lineBreak(4, code)).toEqual(expectedOutput);
+        expect(lineBreak (4) (code)).toEqual(expectedOutput);
     });
 
     it('indents new line by provided number of spaces if following an open brace', () => {
@@ -102,7 +102,7 @@ describe('code-edit/lineBreak', () => {
             selection: { start: 14, end: 14 }
         };
 
-        expect(lineBreak(4, code)).toEqual(expectedOutput);
+        expect(lineBreak (4) (code)).toEqual(expectedOutput);
     });
 
     it('indents new line by tab if following an open brace', () => {
@@ -115,7 +115,7 @@ describe('code-edit/lineBreak', () => {
             selection: { start: 11, end: 11 }
         };
 
-        expect(lineBreak('tab', code)).toEqual(expectedOutput);
+        expect(lineBreak ('tab') (code)).toEqual(expectedOutput);
     });
 
     it('indents new line by provided number of spaces if following an open bracket', () => {
@@ -128,7 +128,7 @@ describe('code-edit/lineBreak', () => {
             selection: { start: 14, end: 14 }
         };
 
-        expect(lineBreak(4, code)).toEqual(expectedOutput);
+        expect(lineBreak (4) (code)).toEqual(expectedOutput);
     });
 
     it('indents new line by tab if following an open bracket', () => {
@@ -141,7 +141,7 @@ describe('code-edit/lineBreak', () => {
             selection: { start: 11, end: 11 }
         };
 
-        expect(lineBreak('tab', code)).toEqual(expectedOutput);
+        expect(lineBreak ('tab') (code)).toEqual(expectedOutput);
     });
 
     it('indents new line by provided number of spaces if following an open parenthesis', () => {
@@ -154,7 +154,7 @@ describe('code-edit/lineBreak', () => {
             selection: { start: 14, end: 14 }
         };
 
-        expect(lineBreak(4, code)).toEqual(expectedOutput);
+        expect(lineBreak (4) (code)).toEqual(expectedOutput);
     });
 
     it('indents new line by tab if following an open parenthesis', () => {
@@ -167,7 +167,7 @@ describe('code-edit/lineBreak', () => {
             selection: { start: 11, end: 11 }
         };
 
-        expect(lineBreak('tab', code)).toEqual(expectedOutput);
+        expect(lineBreak ('tab') (code)).toEqual(expectedOutput);
     });
 
     it('indents new line if selection is mid-line and following an open brace', () => {
@@ -180,7 +180,7 @@ describe('code-edit/lineBreak', () => {
             selection: { start: 14, end: 14 }
         };
 
-        expect(lineBreak(4, code)).toEqual(expectedOutput);
+        expect(lineBreak (4) (code)).toEqual(expectedOutput);
     });
 
     it('indents new line if selection is a range and following an open brace', () => {
@@ -193,7 +193,7 @@ describe('code-edit/lineBreak', () => {
             selection: { start: 14, end: 14 }
         };
 
-        expect(lineBreak(4, code)).toEqual(expectedOutput);
+        expect(lineBreak (4) (code)).toEqual(expectedOutput);
     });
 
     it('indents by provided number of spaces even if the current line is not indented by a valid multiple', () => {
@@ -206,20 +206,7 @@ describe('code-edit/lineBreak', () => {
             selection: { start: 23, end: 23 }
         };
 
-        expect(lineBreak(4, code)).toEqual(expectedOutput);
-    });
-
-    it('is curried', () => {
-        const code = {
-            source: 'key: value',
-            selection: { start: 10, end: 10 }
-        };
-        const expectedOutput = {
-            source: 'key: value\n',
-            selection: { start: 11, end: 11 }
-        };
-
-        expect(lineBreak(4)(code)).toEqual(expectedOutput);
+        expect(lineBreak (4) (code)).toEqual(expectedOutput);
     });
 
     // TODO Anything quirky to do with mixed tabs and spaces

@@ -2,11 +2,8 @@
  *
  */
 
-import Curried from '../core/type/curried';
-import curry from '../core/curry';
+type T = (suffix: string) => (value: string) => string;
 
-type T = Curried<(suffix: string, value: string) => string>;
-
-const f: T = curry((suffix, value) => `${value}${suffix}`);
+const f: T = suffix => value => `${value}${suffix}`;
 
 export default f;

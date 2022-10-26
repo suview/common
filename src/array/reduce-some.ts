@@ -1,14 +1,15 @@
 /**
  *
  */
+
 type Predicate<A> = (x: A) => boolean;
 type Callback<A> = (first: A, second: A) => A;
 
-type T = <A>(predicate: Predicate<A>, callback: Callback<A>, initialValue: A, data: A[]) => A[];
+type T = <A>(predicate: Predicate<A>) => (callback: Callback<A>) => (initialValue: A) => (data: A[]) => A[];
 
 // TODO This could be much more functional when some other functions exist
-const f: T = <A>(predicate: Predicate<A>, callback: Callback<A>, initialValue: A, data: A[]) => {
-    const output: A[] = [];
+const f: T = predicate => callback => initialValue => data => {
+    const output: typeof data = [];
     for (let i = 0; i < data.length; i += 1) {
         let nonMatchIndex = data.slice(i).findIndex(x => !predicate(x));
         if (nonMatchIndex === -1) nonMatchIndex = data.slice(i).length;

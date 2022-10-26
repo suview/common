@@ -2,11 +2,8 @@
  *
  */
 
-import Curried from '../core/type/curried';
-import curry from '../core/curry';
+type T = (reference: number) => (value: number) => boolean;
 
-type T = Curried<(reference: number, value: number) => boolean>;
-
-const f: T = curry((reference, value) => value >= reference);
+const f: T = reference => value => value >= reference;
 
 export default f;
