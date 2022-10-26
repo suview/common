@@ -5,17 +5,13 @@ describe('regex/matches', () => {
         const string = 'abcdef';
         const regex = /cde/;
 
-        expect(matches(regex, string)).toEqual(true);
+        expect(matches (regex) (string)).toEqual(true);
     });
 
     it('returns false if regex does not match value', () => {
         const string = 'abcdef';
         const regex = /xyz/;
 
-        expect(matches(regex, string)).toEqual(false);
-    });
-
-    it('is curried', () => {
-        expect(matches(/x/)('x')).toEqual(true);
+        expect(matches (regex) (string)).toEqual(false);
     });
 });

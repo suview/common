@@ -9,19 +9,14 @@ describe('pan-zoom/zoomOffset', () => {
         const newZoom = 2;
         const origin = [1440, 810];
 
-        const result = zoomOffset(
-            screenSize,
-            worldSize,
-            pan,
-            previousZoom,
-            newZoom,
-            origin
-        );
+        const result = zoomOffset
+            (screenSize)
+            (worldSize)
+            (pan)
+            (previousZoom)
+            (newZoom)
+            (origin);
 
         expect(result).toEqual([80, 45]);
-    });
-
-    it('is curried', () => {
-        expect(zoomOffset([1920, 1080])([500, 500])([100, 100])(1.5)(2)([1440, 810])).toEqual([80, 45]);
     });
 });

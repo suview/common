@@ -7,7 +7,7 @@ describe('code-edit/outdent', () => {
             selection: { start: 0, end: 0 }
         };
 
-        expect(outdent(4, code)).toEqual(code);
+        expect(outdent (4) (code)).toEqual(code);
     });
 
     it('removes spaces from the beginning of the source', () => {
@@ -20,7 +20,7 @@ describe('code-edit/outdent', () => {
             selection: { start: 0, end: 0 }
         };
 
-        expect(outdent(6, code)).toEqual(expectedoutput);
+        expect(outdent (6) (code)).toEqual(expectedoutput);
     });
 
     it('removes tab from the beginning of the source', () => {
@@ -33,7 +33,7 @@ describe('code-edit/outdent', () => {
             selection: { start: 0, end: 0 }
         };
 
-        expect(outdent('tab', code)).toEqual(expectedoutput);
+        expect(outdent ('tab') (code)).toEqual(expectedoutput);
     });
 
     it('removes only one indentation level of spaces from the beginning of the source', () => {
@@ -46,7 +46,7 @@ describe('code-edit/outdent', () => {
             selection: { start: 4, end: 4 }
         };
 
-        expect(outdent(4, code)).toEqual(expectedoutput);
+        expect(outdent (4) (code)).toEqual(expectedoutput);
     });
 
     it('removes only one tab from the beginning of the source', () => {
@@ -59,7 +59,7 @@ describe('code-edit/outdent', () => {
             selection: { start: 1, end: 1 }
         };
 
-        expect(outdent('tab', code)).toEqual(expectedoutput);
+        expect(outdent ('tab') (code)).toEqual(expectedoutput);
     });
 
     it('removes correct number of spaces to align with multiple of indentation level', () => {
@@ -72,7 +72,7 @@ describe('code-edit/outdent', () => {
             selection: { start: 4, end: 4 }
         };
 
-        expect(outdent(4, code)).toEqual(expectedoutput);
+        expect(outdent (4) (code)).toEqual(expectedoutput);
     });
 
     it('removes whitespace regardless of selection', () => {
@@ -85,7 +85,7 @@ describe('code-edit/outdent', () => {
             selection: { start: 5, end: 10 }
         };
 
-        expect(outdent(4, code)).toEqual(expectedoutput);
+        expect(outdent (4) (code)).toEqual(expectedoutput);
     });
 
     it('removes spaces from all lines in the selection', () => {
@@ -98,7 +98,7 @@ describe('code-edit/outdent', () => {
             selection: { start: 2, end: 13 }
         };
 
-        expect(outdent(4, code)).toEqual(expectedoutput);
+        expect(outdent (4) (code)).toEqual(expectedoutput);
     });
 
     it('removes tab from all lines in the selection', () => {
@@ -111,20 +111,7 @@ describe('code-edit/outdent', () => {
             selection: { start: 2, end: 13 }
         };
 
-        expect(outdent('tab', code)).toEqual(expectedoutput);
-    });
-
-    it('is curried', () => {
-        const code = {
-            source: '    key: value',
-            selection: { start: 4, end: 4 }
-        };
-        const expectedoutput = {
-            source: 'key: value',
-            selection: { start: 0, end: 0 }
-        };
-
-        expect(outdent(4)(code)).toEqual(expectedoutput);
+        expect(outdent ('tab') (code)).toEqual(expectedoutput);
     });
 
     // TODO Anything quirky to do with mixed tabs and spaces

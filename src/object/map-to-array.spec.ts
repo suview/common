@@ -6,7 +6,7 @@ describe('object/mapToArray', () => {
         const callback = (value: string) => value;
         const expectedArray = ['One', 'Two', 'Three'];
 
-        expect(mapToArray(callback)(obj)).toEqual(expectedArray);
+        expect(mapToArray (callback) (obj)).toEqual(expectedArray);
     });
 
     it('provides value and key to callback', () => {
@@ -14,13 +14,10 @@ describe('object/mapToArray', () => {
         const callback = (value: string, key: string) => `${key}-${value}`;
         const expectedArray = ['first-One', 'second-Two', 'third-Three'];
 
-        expect(mapToArray(callback)(obj)).toEqual(expectedArray);
+        expect(mapToArray (callback) (obj)).toEqual(expectedArray);
     });
 
     it('maps empty object to empty array', () => {
-        expect(mapToArray(x => x)({})).toEqual([]);
+        expect(mapToArray (x => x) ({})).toEqual([]);
     });
-
-    // TODO Currently manually curried due to
-    // https://github.com/millsp/ts-toolbelt/issues/207
 });

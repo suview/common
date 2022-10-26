@@ -2,11 +2,8 @@
  *
  */
 
-import Curried from '../core/type/curried';
-import curry from '../core/curry';
+type T = (first: number) => (second: number) => number;
 
-type T = Curried<(first: number, second: number) => number>;
-
-const f: T = curry((first, second) => first > second ? first : second);
+const f: T = first => second => first > second ? first : second;
 
 export default f;

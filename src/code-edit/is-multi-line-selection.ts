@@ -12,7 +12,7 @@ const f: T = code => {
         code.selection.start,
         code.selection.end
     );
-    return contains('\n', selection);
+    return contains ('\n') (selection);
 };
 
 export default f;

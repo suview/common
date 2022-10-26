@@ -5,7 +5,7 @@ describe('layout/alongAxis', () => {
         const boxes = [{ width: 100, height: 100 }];
         const expectedLayout = [{ x: 0, y: 0 }];
 
-        expect(alongAxis('horizontal' as const, 100, boxes)).toEqual(expectedLayout);
+        expect(alongAxis ('horizontal' as const) (100) (boxes)).toEqual(expectedLayout);
     });
 
     it('positions multiple boxes horizontally along the center axis', () => {
@@ -20,7 +20,7 @@ describe('layout/alongAxis', () => {
             { x: 350, y: 75 }
         ];
 
-        expect(alongAxis('horizontal' as const, 100, boxes)).toEqual(expectedLayout);
+        expect(alongAxis ('horizontal' as const) (100) (boxes)).toEqual(expectedLayout);
     });
 
     it('positions multiple boxes vertically along the center axis', () => {
@@ -35,7 +35,7 @@ describe('layout/alongAxis', () => {
             { x: 0, y: 500 }
         ];
 
-        expect(alongAxis('vertical' as const, 100, boxes)).toEqual(expectedLayout);
+        expect(alongAxis ('vertical' as const) (100) (boxes)).toEqual(expectedLayout);
     });
 
     it('positions multiple boxes horizontally along the top', () => {
@@ -50,7 +50,7 @@ describe('layout/alongAxis', () => {
             { x: 350, y: 0 }
         ];
 
-        expect(alongAxis('horizontal top' as const, 100, boxes)).toEqual(expectedLayout);
+        expect(alongAxis ('horizontal top' as const) (100) (boxes)).toEqual(expectedLayout);
     });
 
     it('positions multiple boxes vertically along the left', () => {
@@ -65,7 +65,7 @@ describe('layout/alongAxis', () => {
             { x: 0, y: 500 }
         ];
 
-        expect(alongAxis('vertical left' as const, 100, boxes)).toEqual(expectedLayout);
+        expect(alongAxis ('vertical left' as const) (100) (boxes)).toEqual(expectedLayout);
     });
 
     it('positions multiple boxes horizontally along the bottom', () => {
@@ -80,7 +80,7 @@ describe('layout/alongAxis', () => {
             { x: 350, y: 150 }
         ];
 
-        expect(alongAxis('horizontal bottom' as const, 100, boxes)).toEqual(expectedLayout);
+        expect(alongAxis ('horizontal bottom' as const) (100) (boxes)).toEqual(expectedLayout);
     });
 
     it('positions multiple boxes vertically along the right', () => {
@@ -95,6 +95,6 @@ describe('layout/alongAxis', () => {
             { x: 0, y: 500 }
         ];
 
-        expect(alongAxis('vertical right' as const, 100, boxes)).toEqual(expectedLayout);
+        expect(alongAxis ('vertical right' as const) (100) (boxes)).toEqual(expectedLayout);
     });
 });

@@ -2,10 +2,6 @@ import append from './append';
 
 describe('string/append', () => {
     it('concatenates suffix to the end of a string', () => {
-        expect(append('ing', 'append')).toEqual('appending');
-    });
-
-    it('is curried', () => {
-        expect(append('ing')('append')).toEqual('appending');
+        expect(append ('ing') ('append')).toEqual('appending');
     });
 });

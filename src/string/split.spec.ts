@@ -5,17 +5,13 @@ describe('string/split', () => {
         const value = 'oneabctwoabcthree';
         const delimiter = 'abc';
 
-        expect(split(delimiter, value)).toEqual(['one', 'two', 'three']);
+        expect(split (delimiter) (value)).toEqual(['one', 'two', 'three']);
     });
 
     it('splits string by any occurence of the provided regex delimiter', () => {
         const value = 'oneAtwoABCthree';
         const delimiter = /[A-Z]+/;
 
-        expect(split(delimiter, value)).toEqual(['one', 'two', 'three']);
-    });
-
-    it('is curried', () => {
-        expect(split('-')('one-two')).toEqual(['one', 'two']);
+        expect(split (delimiter) (value)).toEqual(['one', 'two', 'three']);
     });
 });
