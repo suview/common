@@ -3,7 +3,7 @@
  */
 
 import Orientation from './type/orientation';
-import Dimensions from '../geometry/type/dimensions';
+import Dimensions from 'geometry/type/dimensions';
 
 type T = (layout: Orientation['main']) => (box: Dimensions) => number;
 

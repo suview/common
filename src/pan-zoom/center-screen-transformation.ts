@@ -2,9 +2,9 @@
  *
  */
 
-import Vector from '../vector/type/vector';
-import pipeValue from '../core/pipe-value';
-import divide from '../vector/divide';
+import Vector from 'vector/type/vector';
+import pipeValue from 'core/pipe-value';
+import divide from 'vector/divide';
 
 import zoomTransformation from './zoom-transformation';
 

@@ -2,15 +2,15 @@
  *
  */
 
-import Dimensions from '../geometry/type/dimensions';
-import Coordinates from '../geometry/type/coordinates';
+import Dimensions from 'geometry/type/dimensions';
+import Coordinates from 'geometry/type/coordinates';
 import OrientationString from './type/orientation-string';
 import orientationFromString from './orientation-from-string';
-import pipeValue from '../core/pipe-value';
-import map from '../array/map';
-import reduce from '../array/reduce';
-import max from '../number/max';
-import add from '../math/add';
+import pipeValue from 'core/pipe-value';
+import map from 'array/map';
+import reduce from 'array/reduce';
+import max from 'number/max';
+import add from 'math/add';
 import mainDimension from './main-dimension';
 import crossDimension from './cross-dimension';
 

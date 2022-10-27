@@ -2,10 +2,10 @@
  *
  */
 
-import pipeValue from '../core/pipe-value';
+import pipeValue from 'core/pipe-value';
 import match from './match';
-import length from '../array/length';
-import gt from '../number/gt';
+import length from 'array/length';
+import gt from 'number/gt';
 
 type T = (regex: RegExp | string) => (value: string) => boolean;
 

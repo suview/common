@@ -2,8 +2,8 @@
  *
  */
 
-import pipe from '../core/pipe';
-import split from '../string/split';
+import pipe from 'core/pipe';
+import split from 'string/split';
 
 type T = (source: string) => number;
 

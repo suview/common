@@ -2,8 +2,8 @@
  *
  */
 
-import Vector from '../vector/type/vector';
-import add from '../vector/add';
+import Vector from 'vector/type/vector';
+import add from 'vector/add';
 
 type T = (transformation: Vector) => (screenCoordinates: Vector) => Vector;
 

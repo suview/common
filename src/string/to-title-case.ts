@@ -3,8 +3,8 @@
  */
 
 import Parts from './type/parts';
-import pipe from '../core/pipe';
-import join from '../array/join';
+import pipe from 'core/pipe';
+import join from 'array/join';
 import upperCaseFirst from './upper-case-first';
 
 type T = (parts: Parts) => string;

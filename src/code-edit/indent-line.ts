@@ -4,7 +4,7 @@
 
 import Indentation from './type/indentation';
 import indentationString from './indentation-string';
-import explode from '../regex/explode';
+import explode from 'regex/explode';
 
 type T = (indentation: Indentation) => (line: string) => string;
 

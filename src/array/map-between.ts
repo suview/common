@@ -2,7 +2,7 @@
  *
  */
 
-import pipeValue from '../core/pipe-value';
+import pipeValue from 'core/pipe-value';
 import front from './front';
 import map from './map';
 
