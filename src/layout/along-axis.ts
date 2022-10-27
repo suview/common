@@ -37,7 +37,7 @@ const f: T = orientation => gutter => boxes => {
         const mainOffset = sizeOfPreviousBoxes + gutter * index;
 
         let crossOffset = 0;
-        if (cross !== 'start') crossOffset = maxCrossDimension - crossDimension(main)(boxes[index]);
+        if (cross !== 'start') crossOffset = maxCrossDimension - crossDimension (main) (box);
         if (cross === 'center') crossOffset /= 2;
 
         return {

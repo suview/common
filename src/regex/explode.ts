@@ -21,7 +21,7 @@ const fn: T = <U>(regex: RegExp) => (keys) => (value) => {
         );
     const output: Record<string, string> = {};
     keys.forEach((key, index) => {
-        output[key] = match[index + 1];
+        output[key] = match[index + 1]!;
     });
     return (output as unknown) as U;
 };

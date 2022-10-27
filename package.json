@@ -1,12 +1,16 @@
 {
     "name": "common",
     "version": "0.1.0",
-    "dependencies": {
+    "scripts": {
+        "type-check": "tsc --watch"
+    },
+    "devDependencies": {
+        "@types/jasmine": "^4.3.0",
         "@types/ramda": "^0.27.38",
-        "core-js": "^3.9.1",
         "date-fns": "^2.17.0",
         "ramda": "^0.27.1",
         "remeda": "^0.0.27",
-        "ts-toolbelt": "^9.3.12"
+        "ts-toolbelt": "^9.3.12",
+        "typescript": "^4.8.4"
     }
 }

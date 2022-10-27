@@ -14,7 +14,7 @@ const f: T = <A extends unknown, B extends unknown>(callback: Callback<A, B>) =>
     // other functions exist (eg map, values, call)
     const returnObj: Record<string, B> = {};
     Object.keys(obj).forEach(key => {
-        returnObj[key] = callback(obj[key], key, obj);
+        returnObj[key] = callback(obj[key]!, key, obj);
     });
     return returnObj;
 };
