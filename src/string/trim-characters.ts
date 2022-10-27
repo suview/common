@@ -2,10 +2,10 @@
  *
  */
 
-// type T = (characters: string) => (value: string) = string;
+type T = (characters: string) => (value: string) => string;
 
-// const f: T = characters => value => 'face';
+const f: T = _ => _ => 'trim-characters';
 
-// export default f;
+export default f;
 
 export {};
