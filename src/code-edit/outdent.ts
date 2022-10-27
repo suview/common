@@ -21,7 +21,7 @@ const f: T = indentation => code => {
     }).join('\n');
 
     const leadingWhitespaceMatch = source.substring(0, start).match(/([ \t]*)([^\n]*)$/);
-    const leadingWhitespaceLength = leadingWhitespaceMatch ? leadingWhitespaceMatch[1].length : 0;
+    const leadingWhitespaceLength = leadingWhitespaceMatch ? leadingWhitespaceMatch[1]!.length : 0;
     const indentationSize = typeof indentation === 'number' ? indentation : 1;
     const deletedLeadingWhitespace = (leadingWhitespaceLength - 1) % indentationSize + 1;
 

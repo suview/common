@@ -2,7 +2,7 @@
  *
  */
 
-type T = <A extends unknown, B extends unknown>(first: A) => (second: B) => boolean;
+type T = <A extends unknown>(first: A) => (second: A) => boolean;
 
 const f: T = first => second => first === second;
 

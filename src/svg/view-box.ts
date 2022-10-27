@@ -18,8 +18,8 @@ const f: T = screenSize => worldSize => pan => zoom => pipeValue(
         ([0, 0]),
     map(x => x.toString()), // TODO Use toString function when it exists
     join(' '),
-    append(` ${screenSize[0] / zoom}`),
-    append(` ${screenSize[1] / zoom}`)
+    append(` ${screenSize[0]! / zoom}`),
+    append(` ${screenSize[1]! / zoom}`)
 );
 
 export default f;

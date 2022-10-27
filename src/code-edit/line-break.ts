@@ -14,7 +14,7 @@ const f: T = indentation => code => {
     const lastBefore = before[before.length - 1];
     const lastLine = before.split('\n').pop() || '';
     const indentationOnLastLine = lastLine.match(/^[ \t]*/);
-    const indentationOnLastLineLength = indentationOnLastLine ? indentationOnLastLine[0].length : 0;
+    const indentationOnLastLineLength = indentationOnLastLine ? indentationOnLastLine[0]!.length : 0;
     const indentCharacter = (typeof indentation === 'number') ? ' ' : '\t';
     const isFollowingBracket = lastBefore === '{' || lastBefore === '[' || lastBefore === '(';
     let newIndentation = indentCharacter.repeat(indentationOnLastLineLength);

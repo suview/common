@@ -14,7 +14,7 @@ const f: T = predicate => callback => initialValue => data => {
         let nonMatchIndex = data.slice(i).findIndex(x => !predicate(x));
         if (nonMatchIndex === -1) nonMatchIndex = data.slice(i).length;
         if (nonMatchIndex + i === i) {
-            output.push(data[i]);
+            output.push(data[i]!);
         } else {
             const matches = data.slice(i, nonMatchIndex + i);
             const reduced = matches.reduce(callback, initialValue);

@@ -13,8 +13,8 @@ const f: T = global => regex => pipeValue(
     flags,
     flagsObject => ({ // TODO Use object.setProp when available
         global,
-        ignoreCase: flagsObject.ignoreCase,
-        multiline: flagsObject.multiline
+        ignoreCase: flagsObject.ignoreCase ? true : false,
+        multiline: flagsObject.multiline ? true : false
     }),
     toString,
     flagsString => new RegExp(regex.source, flagsString) // TODO Use object.construct when available

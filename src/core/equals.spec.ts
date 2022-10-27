@@ -23,11 +23,6 @@ describe('core/equals', () => {
         expect(equals (true) (false)).toEqual(false);
     });
 
-    it('returns false if two unrelated types are provided', () => {
-        expect(equals (1) (null)).toEqual(false);
-        // TODO More examples
-    });
-
     // TODO non-primitives - should use deep equals
 
     // TODO undefineds should not be equal; NaNs should not be equal
