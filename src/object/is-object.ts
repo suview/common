@@ -2,7 +2,7 @@
  *
  */
 
-import isArray from '../array/is-array';
+import isArray from 'array/is-array';
 
 type T = (value: unknown) => boolean;
 

@@ -3,7 +3,7 @@
  */
 
 import Code from './type/code';
-import range from '../number/range';
+import range from 'number/range';
 
 type T = (code: Code) => number[];
 

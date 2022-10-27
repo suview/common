@@ -2,9 +2,9 @@
  *
  */
 
-import Vector from '../vector/type/vector';
-import pipeValue from '../core/pipe-value';
-import add from '../vector/add';
+import Vector from 'vector/type/vector';
+import pipeValue from 'core/pipe-value';
+import add from 'vector/add';
 import centerScreenTransformation from './center-screen-transformation';
 import centerWorldTransformation from './center-world-transformation';
 

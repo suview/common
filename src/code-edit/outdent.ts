@@ -6,7 +6,7 @@ import Code from './type/code';
 import Indentation from './type/indentation';
 import linesInSelection from './lines-in-selection';
 import outdentLine from './outdent-line';
-import contains from '../array/contains';
+import contains from 'array/contains';
 
 type T = (indentation: Indentation) => (code: Code) => Code;
 

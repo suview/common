@@ -3,7 +3,7 @@
  */
 
 import Vector from './type/vector';
-import Coordinates from '../geometry/type/coordinates';
+import Coordinates from 'geometry/type/coordinates';
 
 type T = (value: Vector) => Coordinates;
 

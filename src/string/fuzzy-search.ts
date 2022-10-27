@@ -2,10 +2,10 @@
  *
  */
 
-import pipeValue from '../core/pipe-value';
+import pipeValue from 'core/pipe-value';
 import split from './split';
-import join from '../array/join';
-import matches from '../regex/matches';
+import join from 'array/join';
+import matches from 'regex/matches';
 
 type T = (haystack: string) => (needle: string) => boolean;
 

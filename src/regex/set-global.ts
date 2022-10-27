@@ -2,7 +2,7 @@
  *
  */
 
-import pipeValue from '../core/pipe-value';
+import pipeValue from 'core/pipe-value';
 import flags from './flags';
 import toString from './flags-to-string';
 

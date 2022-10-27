@@ -3,7 +3,7 @@
  */
 
 import Vector from './type/vector';
-import divide from '../math/divide';
+import divide from 'math/divide';
 
 type T = (scaleFactor: number) => (value: Vector) => Vector;
 

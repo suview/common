@@ -3,7 +3,7 @@
  */
 
 import Flags from './type/flags';
-import pipe from '../core/pipe';
+import pipe from 'core/pipe';
 
 type T = (flags: Flags) => string;
 

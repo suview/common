@@ -8,7 +8,7 @@ import isMultiLineSelection from './is-multi-line-selection';
 import linesInSelection from './lines-in-selection';
 import indentLine from './indent-line';
 import indentationString from './indentation-string';
-import contains from '../array/contains';
+import contains from 'array/contains';
 
 type T = (indentation: Indentation) => (code: Code) => Code;
 

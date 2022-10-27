@@ -3,7 +3,7 @@
  */
 
 import Code from './type/code';
-import contains from '../string/contains';
+import contains from 'string/contains';
 
 type T = (code: Code) => boolean;
 
