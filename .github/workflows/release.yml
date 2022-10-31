@@ -1,0 +1,142 @@
+name: Release
+
+on:
+    push:
+        branches:
+          - main
+
+jobs:
+    build-javascript:
+        name: Build JavaScript
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout code
+            uses: actions/checkout@v3
+          - name: Install dependencies
+            run: npm ci
+          - name: Build entry points
+            run: ./node_modules/.bin/ts-node ./entry-points.ts
+          - name: Build JavaScript
+            run: ./node_modules/.bin/ts-node ./esbuild.ts
+          - name: Upload ES module artifacts
+            uses: actions/upload-artifact@v3
+            with:
+                name: esm
+                path: build/esm
+          - name: Upload CommonJS artifacts
+            uses: actions/upload-artifact@v3
+            with:
+                name: cjs
+                path: build/cjs
+          - name: Upload package.json artifact
+            uses: actions/upload-artifact@v3
+            with:
+                name: package.json
+                path: package.json
+    build-types:
+        name: Build Types
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout code
+            uses: actions/checkout@v3
+          - name: Install dependencies
+            run: npm ci
+          - name: Build entry points
+            run: ./node_modules/.bin/ts-node ./entry-points.ts
+          - name: Build types
+            run: ./node_modules/.bin/tsc
+          - name: Upload artifacts
+            uses: actions/upload-artifact@v3
+            with:
+                name: types
+                path: build/types
+    version:
+        name: Version
+        runs-on: ubuntu-latest
+        needs:
+          - build-javascript
+          - build-types
+        outputs:
+            version-tag: ${{ steps.semver.outputs.version_tag }}
+        steps:
+          - name: Checkout code
+            uses: actions/checkout@v3
+            with:
+                fetch-depth: 0
+          - name: Install dependencies
+            run: npm ci
+          - name: Download ES module artifacts
+            uses: actions/download-artifact@v3
+            with:
+                name: esm
+                path: build/esm
+          - name: Download CommonJS artifacts
+            uses: actions/download-artifact@v3
+            with:
+                name: cjs
+                path: build/cjs
+          - name: Download package.json artifact
+            uses: actions/download-artifact@v3
+            with:
+                name: package.json
+          - name: Download Type artifacts
+            uses: actions/download-artifact@v3
+            with:
+                name: types
+                path: build/types
+          - name: Determine next version
+            id: semver
+            uses: paulhatch/semantic-version@v4.0.2
+            with:
+                tag_prefix: v
+                major_pattern: Breaking change
+                major_regexp_flags: i
+                minor_pattern: Feature change
+                minor_regexp_flags: i
+                format: '${major}.${minor}.${patch}'
+          - name: Apply version to package.json
+            run: ./node_modules/.bin/ts-node ./set-build-number.ts ${{ steps.semver.outputs.version }}
+          - name: Upload artifacts
+            uses: actions/upload-artifact@v3
+            with:
+                name: package
+                path: |
+                    package.json
+                    package-lock.json
+                    build
+                    src
+    create-release:
+        name: Create Release
+        runs-on: ubuntu-latest
+        needs: version
+        steps:
+          - name: Download package artifacts
+            uses: actions/download-artifact@v3
+            with:
+                name: package
+          - name: Create release
+            uses: actions/create-release@v1
+            env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            with:
+                tag_name: ${{ needs.version.outputs.version-tag }}
+                release_name: ${{ needs.version.outputs.version-tag }}
+                prerelease: true
+    publish:
+        name: Publish
+        runs-on: ubuntu-latest
+        needs: version
+        steps:
+          - name: Download package artifacts
+            uses: actions/download-artifact@v3
+            with:
+                name: package
+          - name: Set up registry
+            uses: actions/setup-node@v3
+            with:
+                node-version: '16.x'
+                registry-url: 'https://registry.npmjs.org'
+          - name: Publish
+            run: npm publish
+            env:
+                NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

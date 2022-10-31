@@ -1,10 +1,9 @@
 {
-    "name": "common",
-    "version": "0.1.0",
+    "name": "suview-common",
     "license": "MIT",
     "sideEffects": false,
     "description": "A pure functional utility library written in TypeScript",
-    "repository": "https://github.com/stuffaboutpete/common",
+    "repository": "https://github.com/suview/common",
     "scripts": {
         "test": "jest --watch",
         "type-check": "tsc --watch"
