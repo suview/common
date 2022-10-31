@@ -1,6 +1,5 @@
 {
-    "name": "common",
-    "version": "0.1.0",
+    "name": "suview-common",
     "license": "MIT",
     "sideEffects": false,
     "description": "A pure functional utility library written in TypeScript",
