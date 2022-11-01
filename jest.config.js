@@ -3,7 +3,10 @@ module.exports = {
     coverageDirectory: 'coverage',
     coverageProvider: 'v8',
     collectCoverageFrom: ['src/**/*.ts'],
-    coveragePathIgnorePatterns: ['src\/[^/]+\/type'],
+    coveragePathIgnorePatterns: [
+        'index.ts',
+        'src\/[^/]+\/type'
+    ],
     coverageReporters: ['text'],
     coverageThreshold: {
         global: {
