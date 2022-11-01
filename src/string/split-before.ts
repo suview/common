@@ -3,9 +3,9 @@
  */
 
 import Parts from './type/parts';
-import setGlobal from 'regex/set-global';
+import { setGlobal } from 'regex';
 import split from './split';
-import mapMultiple from 'array/map-multiple';
+import { mapMultiple } from 'array';
 import concat from './concat';
 
 type T = (delimiter: string | RegExp) => (value: string) => Parts;

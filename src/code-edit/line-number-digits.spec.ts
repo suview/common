@@ -1,5 +1,5 @@
 import lineNumberDigits from './line-number-digits';
-import range from 'number/range';
+import { range } from 'number';
 
 describe('code-edit/lineNumberDigits', () => {
     it('returns 1 for empty source code', () => {

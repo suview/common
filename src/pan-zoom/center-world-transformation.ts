@@ -3,7 +3,7 @@
  */
 
 import Vector from 'vector/type/vector';
-import divide from 'vector/divide';
+import { divide } from 'vector';
 
 type T = (worldSize: Vector) => Vector;
 

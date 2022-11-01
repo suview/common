@@ -3,8 +3,8 @@
  */
 
 import Vector from 'vector/type/vector';
-import pipeValue from 'core/pipe-value';
-import divide from 'vector/divide';
+import { pipeValue } from 'core';
+import { divide } from 'vector';
 
 import zoomTransformation from './zoom-transformation';
 

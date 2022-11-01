@@ -3,8 +3,8 @@
  */
 
 import Vector from './type/vector';
-import mapMultiple from 'array/map-multiple';
-import add from 'math/add';
+import { mapMultiple } from 'array';
+import { add } from 'math';
 
 type T = (first: Vector) => (second: Vector) => Vector;
 
