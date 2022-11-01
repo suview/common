@@ -2,8 +2,18 @@
  *
  */
 
-type T = () => string;
+import { containsAny, map } from 'array';
+import { pipeValue } from 'core';
 
-const f: T = () => 'any-fail';
+type T = <A extends any[]>(predicates: Array<(...args: A) => boolean>) => (...args: A) => boolean;
+
+const f: T = predicates => (...args) => {
+    type A = typeof predicates[0];
+    return pipeValue(
+        predicates,
+        map ((predicate: A) => predicate(...args)),
+        containsAny (false)
+    );
+};
 
 export default f;
