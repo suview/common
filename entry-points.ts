@@ -11,15 +11,18 @@
  */
 
 import { readdir, writeFile } from 'fs/promises';
-import fromKebabCase from './src/string/from-kebab-case';
-import toCamelCase from './src/string/to-camel-case';
-import match from './src/regex/match';
-import matches from './src/regex/matches';
 import packageJson from './package.json';
 
 const warning = '// This file was auto-generated. Please do not submit it to version control\n\n';
 
 (async () => {
+    const toCamelCase = (str: string) => {
+        const parts = str.split('-');
+        const titleCasedParts = parts.map(part => `${part[0]!.toUpperCase()}${part.slice(1)}`);
+        const pascalCase = titleCasedParts.join('');
+        return `${pascalCase[0]!.toLocaleLowerCase()}${pascalCase.slice(1)}`;
+    };
+
     const rootFiles = await readdir('src', { withFileTypes: true });
     const moduleNames = rootFiles.filter(file => file.isDirectory()).map(file => file.name);
 
@@ -28,12 +31,11 @@ const warning = '// This file was auto-generated. Please do not submit it to ver
         const functionNames = moduleFiles
             .filter(file => file.isFile())
             .filter(file => file.name !== 'index.ts')
-            .filter(file => matches (/\.spec.ts$/) (file.name) === false)
-            .map(file => match (/[^.]+/) (file.name) [0]!);
+            .filter(file => !file.name.endsWith('.spec.ts'))
+            .map(file => file.name.match(/[^.]+/)![0]!);
 
-        const moduleIndexImports = functionNames.map(functionName => {
-            const camelCase = toCamelCase(fromKebabCase(functionName));
-            return `export { default as ${camelCase} } from './${functionName}';`;
+        const moduleIndexImports = functionNames.map((functionName) => {
+            return `export { default as ${toCamelCase(functionName)} } from './${functionName}';`;
         });
 
         return writeFile(
@@ -43,8 +45,7 @@ const warning = '// This file was auto-generated. Please do not submit it to ver
     }));
 
     const rootIndexImports = moduleNames.map(moduleName => {
-        const camelCase = toCamelCase(fromKebabCase(moduleName));
-        return `export * as ${camelCase} from './${moduleName}';`;
+        return `export * as ${toCamelCase(moduleName)} from './${moduleName}';`;
     });
 
     await writeFile(
