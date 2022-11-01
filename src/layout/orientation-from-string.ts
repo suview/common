@@ -4,8 +4,8 @@
 
 import Orientation from './type/orientation';
 import OrientationString from './type/orientation-string';
-import pipe from 'core/pipe';
-import split from 'string/split';
+import { pipe } from 'core';
+import { split } from 'string';
 import crossAxisPosition from './cross-axis-position';
 
 type T = (orientationString: OrientationString) => Orientation;

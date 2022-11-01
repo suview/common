@@ -3,9 +3,9 @@
  */
 
 import Parts from './type/parts';
-// import pipe from 'core/pipe';
-// import explode from 'regex/explode';
-// import parseInt from 'number/parse-int';
+// import { pipe } from 'core';
+// import { explode } from 'regex';
+// import { parseInt } from 'number';
 
 type T = (url: string) => Parts;
 

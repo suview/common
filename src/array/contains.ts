@@ -2,10 +2,10 @@
  *
  */
 
-import pipeValue from 'core/pipe-value';
-import equals from 'core/equals';
+import { pipeValue } from 'core';
+import { equals } from 'core';
 import length from './length';
-import gte from 'number/gte';
+import { gte } from 'number';
 import filter from './filter';
 
 type T = <A extends unknown>(value: A) => (array: A[]) => boolean;

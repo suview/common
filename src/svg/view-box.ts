@@ -3,12 +3,12 @@
  */
 
 import Vector from 'vector/type/vector';
-import pipeValue from 'core/pipe-value';
-import worldCoordinates from 'pan-zoom/world-coordinates';
-import transformation from 'pan-zoom/transformation';
-import map from 'array/map';
-import join from 'array/join';
-import append from 'string/append';
+import { pipeValue } from 'core';
+import { worldCoordinates } from 'pan-zoom';
+import { transformation } from 'pan-zoom';
+import { map } from 'array';
+import { join } from 'array';
+import { append } from 'string';
 
 type T = (screenSize: Vector) => (worldSize: Vector) => (pan: Vector) => (zoom: number) => string;
 

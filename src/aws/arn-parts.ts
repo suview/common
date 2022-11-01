@@ -3,7 +3,7 @@
  */
 
 import Region from './type/region';
-import explode from 'regex/explode';
+import { explode } from 'regex';
 
 interface ArnParts {
     service: string;

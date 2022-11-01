@@ -2,7 +2,7 @@
  *
  */
 
-import pipe from 'core/pipe';
+import { pipe } from 'core';
 import interpolate from './interpolate';
 
 type T = (minimum: number) => (maximum: number) => number;

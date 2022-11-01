@@ -3,7 +3,7 @@
  */
 
 import Vector from './type/vector';
-import multiply from 'math/multiply';
+import { multiply } from 'math';
 
 type T = (scaleFactor: number) => (value: Vector) => Vector;
 

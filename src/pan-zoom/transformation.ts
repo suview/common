@@ -3,8 +3,8 @@
  */
 
 import Vector from 'vector/type/vector';
-import pipeValue from 'core/pipe-value';
-import add from 'vector/add';
+import { pipeValue } from 'core';
+import { add } from 'vector';
 import centerScreenTransformation from './center-screen-transformation';
 import centerWorldTransformation from './center-world-transformation';
 

@@ -3,7 +3,7 @@
  */
 
 import Vector from 'vector/type/vector';
-import add from 'vector/add';
+import { add } from 'vector';
 
 type T = (transformation: Vector) => (screenCoordinates: Vector) => Vector;
 
