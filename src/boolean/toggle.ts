@@ -2,8 +2,8 @@
  *
  */
 
-type T = () => string;
+type T = (value: boolean) => boolean;
 
-const f: T = () => 'toggle';
+const f: T = value => !value;
 
 export default f;
